@@ -19,7 +19,7 @@ A simple diary application built with Django that allows users to create, view, 
 
 ## Folder Structure
 ```bash
-diary_app/
+diaryApplication/
 ├── diary/                           # Django app containing diary-related functionalities
 │   ├── migrations/                  # Database migrations for the diary app
 │   ├── __init__.py                  # Python package marker
