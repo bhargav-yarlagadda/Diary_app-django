@@ -16,10 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from diary.views import home_page,add_new_entry,fetch_entries
+from diary.views import home_page,add_new_entry,fetch_entries,fetch_individual_diary_entry,not_found
+handler404 = not_found
+
 urlpatterns = [
     path('',home_page),
+    path('diary/<int:id>/', fetch_individual_diary_entry),
     path('add-new-entry',add_new_entry),
     path('view-entries',fetch_entries),
     path('admin/', admin.site.urls),
+    
 ]

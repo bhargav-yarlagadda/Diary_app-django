@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diary Entry | {{entry.header}}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes glow {
+            0% {
+                text-shadow: 0 0 10px #94f3ff, 0 0 20px #94f3ff, 0 0 30px #94f3ff, 0 0 40px #0099ff, 0 0 70px #0099ff;
+            }
+            100% {
+                text-shadow: 0 0 20px #94f3ff, 0 0 30px #94f3ff, 0 0 40px #0099ff, 0 0 80px #0099ff, 0 0 120px #0099ff;
+            }
+        }
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes buttonGlow {
+            0% {
+                box-shadow: 0 0 15px rgba(99, 102, 241, 0.4), 0 0 30px rgba(79, 70, 229, 0.4);
+            }
+            100% {
+                box-shadow: 0 0 25px rgba(99, 102, 241, 0.8), 0 0 50px rgba(79, 70, 229, 0.8);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-300 min-h-screen flex items-center justify-center overflow-hidden">
+    <div class="max-w-3xl w-full bg-gray-800 p-10 rounded-lg shadow-2xl border border-gray-700 transform transition-all duration-500 hover:scale-105 hover:shadow-xl">
+        <!-- Entry Header -->
+        <h1 class="text-5xl font-extrabold text-white mb-6 animate-pulse tracking-wider text-center glow" style="animation: glow 2s ease-in-out infinite alternate, fadeIn 1s ease-in-out">
+            {{ entry.header }}
+        </h1>
+
+        <!-- Entry Body -->
+        <div class="text-lg leading-relaxed text-gray-300 space-y-6 animate-fadeIn">
+            <p class="whitespace-pre-line tracking-wide text-gray-200 transition-all duration-300 ease-in-out hover:text-blue-400">{{ entry.entry }}</p>
+            <p class="mt-8 text-right text-sm text-gray-500">Created on: 
+                <span class="text-gray-400">{{ entry.timestamp|date:"F d, Y H:i" }}</span>
+            </p>
+        </div>
+
+        <!-- Back to Home Button -->
+        <div class="flex justify-center mt-10">
+            <a href="/" class="relative px-8 py-3 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold text-xl shadow-lg transform transition-all duration-300 ease-in-out hover:bg-blue-700 hover:scale-110 focus:outline-none focus:ring-4 focus:ring-blue-400 animate-buttonGlow" style="animation: buttonGlow 2s ease-in-out infinite alternate;">
+                <span class="absolute inset-0 opacity-50 rounded-full bg-gradient-to-r from-indigo-500 via-purple-600 to-blue-500 blur-md filter"></span>
+                <span class="relative">Back to Home</span>
+            </a>
+        </div>
+    </div>
+
+    <style>
+        body {
+            animation: fadeIn 1s ease-in-out;
+        }
+    </style>
+</body>
+</html>
