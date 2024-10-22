@@ -18,6 +18,7 @@ A simple diary application built with Django that allows users to create, view, 
 - **SQLite**: Default database for development (can be changed based on deployment requirements).
 
 ## Folder Structure
+```bash
 diary_app/
 ├── diary/                           # Django app containing diary-related functionalities
 │   ├── migrations/                  # Database migrations for the diary app
@@ -35,11 +36,9 @@ diary_app/
 │   ├── asgi.py                      # ASGI configuration
 │   ├── settings.py                  # Project settings
 │   ├── urls.py                      # Project-wide URL routing
-│   └── wsgi.py                      # WSGI configuration
-├── manage.py                        # Command-line utility for interacting with the project
-├── requirements.txt                 # List of dependencies for the project
-└── venv/                            # Virtual environment
-
+│   └── wsgi.py                      # WSGI configuration                       
+└── manage.py                             # Command-line utility for interacting with the project
+```
 ## Installation
 
 To set up the project locally, follow these steps:
