@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diary Entries | My Diary</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            font-family: 'Inter', sans-serif;
+            opacity: 0;
+            animation: fadeIn 1.5s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 3rem;
+            box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .entry-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            opacity: 0; /* Start invisible */
+            animation: slideIn 0.5s forwards; /* Slide-in animation */
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(20px); /* Start 20px lower */
+                opacity: 0; /* Start invisible */
+            }
+            to {
+                transform: translateY(0); /* Move to original position */
+                opacity: 1; /* Fade in */
+            }
+        }
+
+        /* Soft glow effect for buttons */
+        button.glow {
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Button hover effects */
+        button:hover {
+            transform: scale(1.08) rotate(2deg);
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
+        }
+
+        .return-button {
+            transition: background-color 0.3s ease;
+        }
+
+        .return-button:hover {
+            background-color: #3b82f6; /* Darken the blue on hover */
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen text-gray-200">
+    <div class="container w-2/3 lg:w-1/2 max-h-[700px] overflow-y-scroll" style="scrollbar-width: none;">
+        <h1 class="text-5xl font-extrabold mb-6 text-gray-100 text-center">Diary Entries</h1>
+        {% if entries %}
+            {% for entry in entries %}
+                <div class="entry-card">
+                    <h2 class="text-2xl font-bold text-gray-200">{{ entry.header }}</h2>
+                    <p class="text-gray-300">{{ entry.entry }}</p>
+                    <p class="text-gray-500 text-sm">Date: {{ entry.timestamp }}</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="text-gray-300">No entries found.</p>
+        {% endif %}
+        <div class="w-full text-center mt-6">
+            <a href="/" class="return-button hover:bg-blue-700 bg-blue-500 px-4 py-2 rounded-md font-thin text-white transition duration-300">
+                Return Home
+            </a>
+        </div>
+    </div>
+</body>
+</html>

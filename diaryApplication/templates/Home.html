@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diary | Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for a more polished look */
+        body {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            font-family: 'Inter', sans-serif;
+            opacity: 0;
+            animation: fadeIn 1.5s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 3rem;
+            box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.5);
+   
+        }
+
+        /* Soft glow effect for buttons */
+        button.glow {
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Button hover effects */
+        button:hover {
+            transform: scale(1.08) rotate(2deg);
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+            }
+
+            h1 {
+                font-size: 3rem;
+            }
+
+            button {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen text-gray-200">
+    <div class="container w-2/3 lg:w-1/2 text-center rounded-md border-2 border-blue-400">
+        <h1 class="text-6xl font-extrabold mb-4 text-gray-100">My Diary</h1>
+        <p class="text-xl font-light text-gray-300 mb-8">Capture your thoughts, one note at a time.</p>
+        <div class="flex gap-3 md:gap-8 flex-col md:flex-row justify-center items-center">
+            <a href="/add-new-entry">
+            <button class="glow px-8 py-4 bg-indigo-500 text-white text-sm md:text-lg font-semibold rounded-lg shadow-lg hover:bg-indigo-400 hover:shadow-xl transition-all duration-300">
+                Add New Entry 
+            </button>
+            </a>
+            <a href="/view-entries">
+            <button class="glow px-8 py-4 bg-teal-500 text-white text-sm md:text-lg font-semibold rounded-lg shadow-lg hover:bg-teal-400 hover:shadow-xl transition-all duration-300">
+                View Previous Notes
+            </button>
+        </a>
+        </div>
+    </div>
+</body>
+</html>
